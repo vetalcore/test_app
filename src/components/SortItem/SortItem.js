@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class SortItem extends Component {
 
@@ -19,9 +19,14 @@ class SortItem extends Component {
           })}
         </select>
       </label>
-
     );
   }
+};
+
+
+SortItem.propTypes = {
+  options: PropTypes.array,
+  onChange: PropTypes.func
 };
 
 export default SortItem;

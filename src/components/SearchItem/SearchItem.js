@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class FilterItem extends Component {
 
@@ -15,6 +15,11 @@ class FilterItem extends Component {
       <label>{`Quick search by post ${name}`} <input type="text" onChange={this.onChange.bind(this)}/></label>
     );
   }
+};
+
+FilterItem.propTypes = {
+  name: PropTypes.string,
+  onChange: PropTypes.func
 };
 
 export default FilterItem;

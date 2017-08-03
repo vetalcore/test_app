@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import PostList from './components/PostList/PostList'
 import FilterList from './components/FilterList/FilterList'
 import posts from 'json-loader!./posts.json'; // eslint-disable-line
 import users from 'json-loader!./users.json'; // eslint-disable-line
+
+// App.css shouldn't contain all styles, style fyle per componenr
 import './App.css';
 
 class App extends Component {
@@ -17,8 +19,7 @@ class App extends Component {
     this.state = {
       posts,
       filters: {
-      },
-      sort: "authorName"
+      }
     }
   }
 
@@ -37,7 +38,7 @@ class App extends Component {
       return Object.keys(filters).every((filter) => !filters[filter] || filters[filter] === post[filter].toLowerCase())
         && Object.keys(search).every((searchField) => !search[searchField] || (post[searchField]).toLowerCase().includes(search[searchField]));
     }).sort((post1, post2) => {
-      return post1[sort].localeCompare(post2[sort]);
+      return !!sort ? post1[sort].localeCompare(post2[sort]) : 0;
     });
   }
 
@@ -76,6 +77,10 @@ class App extends Component {
       </div>
     );
   }
+};
+
+App.propTypes = {
+  users: PropTypes.array
 }
 
 export default App;

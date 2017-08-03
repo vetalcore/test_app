@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 class FilterItem extends Component {
 
@@ -24,6 +24,12 @@ class FilterItem extends Component {
 
     );
   }
+};
+
+FilterItem.propTypes = {
+  name: PropTypes.string,
+  options: PropTypes.array,
+  onChange: PropTypes.func
 };
 
 export default FilterItem;

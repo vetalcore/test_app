@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import PostItem from '../PostItem/PostItem'
 
 const PostList = ({ posts, onRemove }) => (
@@ -8,5 +8,10 @@ const PostList = ({ posts, onRemove }) => (
     })}
   </div>
 );
+
+PostList.propTypes = {
+  posts: PropTypes.array,
+  onRemove: PropTypes.func
+};
 
 export default PostList;
